@@ -10,6 +10,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gettext
 BuildRequires:	tetex
 BuildRequires:	texinfo
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 PV ("Pipe Viewer") is a tool for monitoring the progress of data
