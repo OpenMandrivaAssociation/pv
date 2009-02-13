@@ -1,7 +1,7 @@
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
-Version:	0.8.6
-Release:	%mkrel 6
+Version:	1.1.4
+Release:	%mkrel 1
 Group:		Development/Other
 License:	Artistic
 URL:		http://www.ivarch.com/programs/pv.shtml
@@ -35,13 +35,9 @@ make test
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_infodir}
 install -d %{buildroot}%{_mandir}/man1
 
 %{makeinstall_std}
-
-# prepare for html doc inclusion
-mkdir html; cp doc/*.html html/
 
 %find_lang %{name}
 # note; the nls files should probably be added also somehow in the future...
@@ -49,17 +45,10 @@ mkdir html; cp doc/*.html html/
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-%post
-%_install_info %{name}.info
-
-%postun
-%_remove_install_info %{name}.info
-
 %files -f %{name}.lang
 %defattr(-, root, root)
-%doc html README doc/NEWS doc/TODO doc/COPYING
+%doc README doc/NEWS doc/TODO doc/COPYING
 %{_bindir}/*
-%{_infodir}/*
 %{_mandir}/man1/*
 
 
