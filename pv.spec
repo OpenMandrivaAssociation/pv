@@ -63,9 +63,6 @@ popd
 %makeinstall_std -C uclibc
 %endif
 
-install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_mandir}/man1
-
 %makeinstall_std -C system
 
 %find_lang %{name}
