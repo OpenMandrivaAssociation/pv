@@ -54,9 +54,10 @@ mkdir -p system
 pushd system
 %configure2_5x
 %make
-
-make test
 popd
+
+%check
+make -C system test
 
 %install
 %if %{with uclibc}
