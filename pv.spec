@@ -8,6 +8,7 @@ Group:		Development/Other
 License:	Artistic
 URL:		http://www.ivarch.com/programs/pv.shtml
 Source0:	http://www.ivarch.com/programs/sources/%{name}-%{version}.tar.bz2
+Patch0:		pv-1.4.4-wholeprogram.patch
 BuildRequires:	gettext-devel
 BuildRequires:	gettext
 BuildRequires:	tetex
@@ -39,6 +40,7 @@ completion.
 
 %prep
 %setup -q
+%patch0 -p1 -b .wholeprogram~
 
 %build
 CONFIGURE_TOP="$PWD"
@@ -46,25 +48,25 @@ CONFIGURE_TOP="$PWD"
 mkdir -p uclibc
 pushd uclibc
 %uclibc_configure
-%make
+%make WHOLE_PROGRAM=1
 popd
 %endif
 
 mkdir -p system
 pushd system
 %configure2_5x
-%make
+%make WHOLE_PROGRAM=1
 popd
 
 %check
-make -C system test
+%make -C system test WHOLE_PROGRAM=1
 
 %install
 %if %{with uclibc}
-%makeinstall_std -C uclibc
+%makeinstall_std -C uclibc WHOLE_PROGRAM=1
 %endif
 
-%makeinstall_std -C system
+%makeinstall_std -C system WHOLE_PROGRAM=1
 
 %find_lang %{name}
 

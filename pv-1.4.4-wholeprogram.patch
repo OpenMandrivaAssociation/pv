@@ -1,0 +1,24 @@
+--- pv-1.4.4/autoconf/make/link.mk.wholeprogram~	2012-12-27 10:06:39.575112681 +0100
++++ pv-1.4.4/autoconf/make/link.mk	2012-12-27 10:07:19.740621189 +0100
+@@ -2,10 +2,21 @@
+ # Targets.
+ #
+ 
++ifndef WHOLE_PROGRAM
+ $(package): src/main.o src/library.o src/pv.o @NLSOBJ@
+ 	$(CC) $(LINKFLAGS) $(CFLAGS) -o $@ src/main.o src/library.o src/pv.o @NLSOBJ@ $(LIBS)
+ 
+ $(package)-static: src/main.o src/library.o src/pv.o @NLSOBJ@
+ 	$(CC) $(LINKFLAGS) $(CFLAGS) -static -o $@ src/main.o src/library.o src/pv.o @NLSOBJ@ $(LIBS)
++else
++SRCS = $(patsubst %,$(srcdir)/%,$(allsrc))
++
++$(package): @NLSOBJ@
++	$(CC) $(LINKFLAGS) -Wl,--no-warn-common -flto -fwhole-program $(CPPFLAGS) $(CFLAGS) -o $@ $(SRCS) @NLSOBJ@ $(LIBS)
++
++$(package)-static: @NLSOBJ@
++	$(CC) $(LINKFLAGS) -Wl,--no-warn-common -flto -fwhole-program $(CPPFLAGS) $(CFLAGS) -static -o $@ $(SRCS) @NLSOBJ@ $(LIBS)
++
++endif
+ 
+ # EOF
