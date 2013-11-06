@@ -6,13 +6,13 @@ Version:	1.4.12
 Release:	1
 Group:		Development/Other
 License:	Artistic
-URL:		http://www.ivarch.com/programs/pv.shtml
+Url:		http://www.ivarch.com/programs/pv.shtml
 Source0:	http://www.ivarch.com/programs/sources/%{name}-%{version}.tar.bz2
 Patch0:		pv-1.4.4-wholeprogram.patch
-BuildRequires:	gettext-devel
 BuildRequires:	gettext
 BuildRequires:	tetex
 BuildRequires:	texinfo
+BuildRequires:	gettext-devel
 %if %{with uclibc}
 BuildRequires:	uClibc-devel
 %endif
@@ -37,10 +37,9 @@ data is passing through, how long it has taken, how near to
 completion it is, and an estimate of how long it will be until
 completion.
 
-
 %prep
 %setup -q
-%patch0 -p1 -b .wholeprogram~
+%apply_patches
 
 %build
 CONFIGURE_TOP="$PWD"
@@ -80,3 +79,4 @@ popd
 %files -n uclibc-%{name}
 %{uclibc_root}%{_bindir}/pv
 %endif
+
