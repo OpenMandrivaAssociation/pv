@@ -2,7 +2,7 @@
 
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
-Version:	1.5.1
+Version:	1.5.2
 Release:	1
 Group:		Development/Other
 License:	Artistic
@@ -79,5 +79,6 @@ popd
 %files -n uclibc-%{name}
 %{uclibc_root}%{_bindir}/pv
 %endif
+
 
 
