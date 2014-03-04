@@ -47,7 +47,21 @@ CONFIGURE_TOP="$PWD"
 %if %{with uclibc}
 mkdir -p uclibc
 pushd uclibc
-%uclibc_configure
+#cb cant use uclibc_configure due to localedir
+%configure2_5x \
+--libdir=%{uclibc_root}%{_libdir} \
+--prefix=%{uclibc_root}%{_prefix} \
+--exec-prefix=%{uclibc_root}%{_prefix} \
+--bindir=%{uclibc_root}%{_bindir} \
+--sbindir=%{uclibc_root}%{_sbindir} \
+--enable-nls \
+--with-ncursesw \
+--disable-rpath-hack \
+--enable-static \
+CC="%{uclibc_cc}" \
+CXX="%{uclibc_cxx}" \
+CFLAGS="%{uclibc_cflags}" \
+CXXFLAGS="%{uclibc_cxxflags}"
 %make WHOLE_PROGRAM=1
 popd
 %endif
