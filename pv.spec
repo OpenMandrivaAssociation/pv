@@ -1,8 +1,9 @@
 %bcond_without	uclibc
 
 Summary:	Monitor the progress of data through a pipe
+
 Name:		pv
-Version:	1.5.2
+Version:	1.5.3
 Release:	1
 Group:		Development/Other
 License:	Artistic
@@ -27,6 +28,7 @@ completion.
 
 %package -n	uclibc-%{name}
 Summary:	Monitor the progress of data through a pipe (uClibc build)
+
 Group:		Development/Other
 
 %description -n	uclibc-%{name}
@@ -93,6 +95,7 @@ popd
 %files -n uclibc-%{name}
 %{uclibc_root}%{_bindir}/pv
 %endif
+
 
 
 

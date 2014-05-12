@@ -3,5 +3,6 @@ removed_sources:
   pv-1.4.12.tar.bz2: ce1b9b90a0f6bdfb533d548b3d56d83cd1df4fd3
   pv-1.4.6.tar.bz2: c8f66859a7e1d314f1160e3b8fc0e26cf5cdea11
   pv-1.5.1.tar.bz2: 2ba1cc6347413fe324b338cf742a04925570be53
-sources:
   pv-1.5.2.tar.bz2: 0ca480d0ef2400bb9ebe9a992e011a9f004f42b8
+sources:
+  pv-1.5.3.tar.bz2: 8cb04ca5c2318e4da0dc88f87f16cea6e1901bef
