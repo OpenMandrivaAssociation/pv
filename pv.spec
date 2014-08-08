@@ -1,7 +1,6 @@
 %bcond_without	uclibc
 
 Summary:	Monitor the progress of data through a pipe
-
 Name:		pv
 Version:	1.5.3
 Release:	4
@@ -9,7 +8,8 @@ Group:		Development/Other
 License:	Artistic
 Url:		http://www.ivarch.com/programs/pv.shtml
 Source0:	http://www.ivarch.com/programs/sources/%{name}-%{version}.tar.bz2
-Patch0:		pv-1.4.4-wholeprogram.patch
+#(tpg) clang does not recognize fwhole-program
+#Patch0:		pv-1.4.4-wholeprogram.patch
 BuildRequires:	gettext
 BuildRequires:	tetex
 BuildRequires:	texinfo
@@ -63,25 +63,27 @@ CC="%{uclibc_cc}" \
 CXX="%{uclibc_cxx}" \
 CFLAGS="%{uclibc_cflags}" \
 CXXFLAGS="%{uclibc_cxxflags}"
-%make WHOLE_PROGRAM=1
+
+%make
 popd
 %endif
 
 mkdir -p system
 pushd system
-%configure2_5x
-%make WHOLE_PROGRAM=1
+%configure
+
+%make
 popd
 
 %check
-%make -C system test WHOLE_PROGRAM=1
+%make -C system test
 
 %install
 %if %{with uclibc}
-%makeinstall_std -C uclibc WHOLE_PROGRAM=1
+%makeinstall_std -C uclibc
 %endif
 
-%makeinstall_std -C system WHOLE_PROGRAM=1
+%makeinstall_std -C system
 
 %find_lang %{name}
 
