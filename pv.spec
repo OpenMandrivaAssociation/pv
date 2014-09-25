@@ -2,8 +2,8 @@
 
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
-Version:	1.5.3
-Release:	4
+Version:	1.5.7
+Release:	1
 Group:		Development/Other
 License:	Artistic
 Url:		http://www.ivarch.com/programs/pv.shtml
@@ -97,7 +97,3 @@ popd
 %files -n uclibc-%{name}
 %{uclibc_root}%{_bindir}/pv
 %endif
-
-
-
-
