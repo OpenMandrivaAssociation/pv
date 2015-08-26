@@ -1,9 +1,9 @@
-%bcond_without	uclibc
+%bcond_with	uclibc
 
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
 Version:	1.5.7
-Release:	3
+Release:	4
 Group:		Development/Other
 License:	Artistic
 Url:		http://www.ivarch.com/programs/pv.shtml
@@ -26,9 +26,9 @@ data is passing through, how long it has taken, how near to
 completion it is, and an estimate of how long it will be until
 completion.
 
+%if %{with uclibc}
 %package -n	uclibc-%{name}
 Summary:	Monitor the progress of data through a pipe (uClibc build)
-
 Group:		Development/Other
 
 %description -n	uclibc-%{name}
@@ -38,6 +38,7 @@ between two processes to give a visual indication of how quickly
 data is passing through, how long it has taken, how near to
 completion it is, and an estimate of how long it will be until
 completion.
+%endif
 
 %prep
 %setup -q
