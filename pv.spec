@@ -1,4 +1,5 @@
 %bcond_with	uclibc
+%define _disable_lto 1
 
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
