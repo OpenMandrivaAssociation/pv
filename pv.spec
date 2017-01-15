@@ -36,7 +36,7 @@ completion.
 %make test
 
 %install
-%makeinstall_std -C system
+%makeinstall_std
 
 %find_lang %{name}
 
