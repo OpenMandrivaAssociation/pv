@@ -2,8 +2,8 @@
 
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
-Version:	1.5.7
-Release:	8
+Version:	1.6.6
+Release:	1
 Group:		Development/Other
 License:	Artistic
 Url:		http://www.ivarch.com/programs/pv.shtml
