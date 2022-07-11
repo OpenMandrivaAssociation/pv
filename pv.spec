@@ -2,7 +2,7 @@
 
 Summary:	Monitor the progress of data through a pipe
 Name:		pv
-Version:	1.6.6
+Version:	1.6.20
 Release:	1
 Group:		Development/Other
 License:	Artistic
