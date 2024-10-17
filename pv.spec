@@ -6,7 +6,7 @@ Version:	1.6.20
 Release:	2
 Group:		Development/Other
 License:	Artistic
-Url:		http://www.ivarch.com/programs/pv.shtml
+Url:		https://www.ivarch.com/programs/pv.shtml
 Source0:	http://www.ivarch.com/programs/sources/%{name}-%{version}.tar.bz2
 #(tpg) clang does not recognize fwhole-program
 #Patch0:		pv-1.4.4-wholeprogram.patch
